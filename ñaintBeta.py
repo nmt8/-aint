@@ -92,12 +92,11 @@ class Naint:
         self.color_preview.config(bg=self.color)
     
     def undo(self, event=None):
-        pixels_to_remove = 10  # Cantidad de píxeles a eliminar en cada paso de deshacer
+        pixels_to_remove = 10 
         while self.undo_stack and pixels_to_remove > 0:
             action_type, action = self.undo_stack.pop()
             if action_type == "draw":
                 self.canvas.delete(action)
-                # Actualizamos la cantidad de píxeles que restan por eliminar
                 pixels_to_remove -= 1
 
 
